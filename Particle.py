@@ -34,7 +34,9 @@ class Particle:
 
     def apply_force(self, force):
         if self.material.mass != 0.0:
-            self.acceleration += force / self.material.mass
+            self.acceleration.x += force.x / self.material.mass
+            self.acceleration.y += force.y / self.material.mass
+            # self.acceleration += force / self.material.mass
 
     def apply_impulse(self, impulse):
         if self.material.mass != 0.0:

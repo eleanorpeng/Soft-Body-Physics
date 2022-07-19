@@ -7,7 +7,7 @@ class Square(App):
 
     grabbed = None
     radius = 20
-    strength = 0.2
+    strength = 0.3
 
     def initialize(self):
         mat = Material(1.0, 1.0, 1.0)
@@ -24,6 +24,7 @@ class Square(App):
         self.world.add_constraint(self.world.particles[1], self.world.particles[3], 0.2)
 
         self.world.particles[0].apply_impulse(Vector(0.0, -7.0))
+
 
     def update(self):
         if game.mouse.get_pressed()[0]:
@@ -46,11 +47,11 @@ class Square(App):
         self.screen.fill((24, 24, 24))
         for p in self.world.particles:
             pos = (int(p.position.x), int(p.position.y))
-            game.draw.circle(self.screen, (255, 0, 0), pos, 10, 0)
+            game.draw.circle(self.screen, (245, 206, 115), pos, 10, 0)
         for c in self.world.constraints:
             pos1 = (int(c.node1.position.x), int(c.node1.position.y))
             pos2 = (int(c.node2.position.x), int(c.node2.position.y))
-            game.draw.line(self.screen, (255, 0, 0), pos1, pos2, 2)
+            game.draw.line(self.screen, (245, 206, 115), pos1, pos2, 2)
         game.display.update()
 
     def closest_point(self):
